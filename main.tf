@@ -21,3 +21,9 @@ resource "azurerm_subnet" "subnet" {
   network_security_group_id = "${lookup(var.nsg_ids,var.subnet_names[count.index],"")}"
   count                     = "${length(var.subnet_names)}"
 }
+provider "azurerm" {
+  subscription_id = "${var.subscription_id}"
+  client_id       = "${var.client_id}"
+  client_secret   = "${var.client_secret}"
+  tenant_id       = "${var.tenant_id}"
+}
